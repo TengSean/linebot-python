@@ -53,7 +53,11 @@ def filter_message(message):
                 )
     elif message == 'VideoSendMessage':
 #         pass
-        return 'VideoSendMessage function'
+#         return 'VideoSendMessage function'
+        return VideoSendMessage(
+                    original_content_url='./data/mp4/sample.mp4',
+                    preview_image_url='./data/mp4/sample.jpg'
+                )
     elif message == 'AudioSendMessage':
 #         pass
         return 'AudioSendMessage function '
@@ -93,7 +97,7 @@ def filter_message(message):
                 'ImageCarouselTemplate'
         '''
     else:
-        return message
+        return TextSendMessage(text=message)
 
 
 # 處理訊息
