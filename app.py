@@ -63,7 +63,7 @@ def filter_message(message):
 #         return 'AudioSendMessage function '
         return AudioSendMessage(
                     original_content_url='https://www.myinstants.com/media/sounds/ringtone_20.mp3',
-#                     duration=240000
+                    duration=3000
                 )
     elif message == 'LocationSendMessage':
 #         pass
