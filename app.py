@@ -71,8 +71,8 @@ def filter_message(message):
         return LocationSendMessage(
                     title='Demo Location',
                     address='清大',
-                    latitude=24.796297,
-                    longitude=120.996638
+                    latitude=120.996638,
+                    longitude=24.796297
                 )
     elif message == 'StickerSendMessage':
 #         reference pdf: https://developers.line.biz/media/messaging-api/messages/sticker_list.pdf
@@ -84,7 +84,26 @@ def filter_message(message):
                 )
     elif message == 'ImagemapSendMessage':
 #         pass
-        return 'ImagemapSendMessage function'
+#         return 'ImagemapSendMessage function'
+        return ImagemapSendMessage(
+                    base_url='https://example.com/base',
+                    alt_text='this is an imagemap',
+                    base_size=BaseSize(height=1040, width=1040),
+                    actions=[
+                        URIImagemapAction(
+                            link_uri='https://example.com/',
+                            area=ImagemapArea(
+                                x=0, y=0, width=520, height=1040
+                            )
+                        ),
+                        MessageImagemapAction(
+                            text='hello',
+                            area=ImagemapArea(
+                                x=520, y=0, width=520, height=1040
+                            )
+                        )
+                    ]
+                )
     elif message == 'ButtonsTemplate':
 #         pass
         return 'ButtonsTemplate function '
