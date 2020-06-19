@@ -179,7 +179,7 @@ def filter_message(message):
                     template=CarouselTemplate(
                         columns=[
                             CarouselColumn(
-                                thumbnail_image_url='https://example.com/item1.jpg',
+                                thumbnail_image_url='https://i.imgur.com/Jvh1OQm.jpg',
                                 title='this is menu1',
                                 text='description1',
                                 actions=[
@@ -199,7 +199,7 @@ def filter_message(message):
                                 ]
                             ),
                             CarouselColumn(
-                                thumbnail_image_url='https://example.com/item2.jpg',
+                                thumbnail_image_url='https://i.imgur.com/9l1A4OS.jpg',
                                 title='this is menu2',
                                 text='description2',
                                 actions=[
@@ -223,7 +223,30 @@ def filter_message(message):
                 )
     elif message == 'ImageCarouselTemplate':
 #         pass
-        return 'ImageCarouselTemplate function'
+#         return 'ImageCarouselTemplate function'
+        return TemplateSendMessage(
+                    alt_text='ImageCarousel template',
+                    template=ImageCarouselTemplate(
+                        columns=[
+                            ImageCarouselColumn(
+                                image_url='https://i.imgur.com/iDSe6Em.jpg',
+                                action=PostbackTemplateAction(
+                                    label='postback1',
+                                    text='postback text1',
+                                    data='action=buy&itemid=1'
+                                )
+                            ),
+                            ImageCarouselColumn(
+                                image_url='https://i.imgur.com/BYOB8bW.jpg',
+                                action=PostbackTemplateAction(
+                                    label='postback2',
+                                    text='postback text2',
+                                    data='action=buy&itemid=2'
+                                )
+                            )
+                        ]
+                    )
+                )
     elif message == 'help':
         return TextSendMessage(text='''You can test following cmd in this bot:
                 'TextSendMessage'
