@@ -98,7 +98,7 @@ def handle_message(event):
 #     logging.info(message)
     message = filter_message(message=event.message.text)
 #     t = ', '.join(os.listdir('./'))
-#     message = TextSendMessage(text=t)
+    message = TextSendMessage(text=message)
 #     message = os.listdir('./')
     line_bot_api.reply_message(event.reply_token, message)
 
