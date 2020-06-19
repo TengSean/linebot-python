@@ -35,11 +35,6 @@ def callback():
         abort(400)
     return 'OK'
 
-help_dict = {
-
-
-}
-
 def get_json():
 #     with open('./data/test1.json', 'r') as f:
 #         j = json.loads(f)
@@ -291,7 +286,7 @@ def handle_message(event):
     line_bot_api.reply_message(event.reply_token, message)
 
     
-@handler.add(PostbackEvent, postback=Postback)
+@handler.add(PostbackEvent)
 def handle_postback(event):
 #     pass
 #     j= event
