@@ -298,7 +298,7 @@ def handle_postback(event):
     with open('./data/test1.txt', 'w') as f:
             
 #         json.dump(event, f)
-        f.write(str(', '.join(dir(event))) + "\n")
+        f.write(str(', '.join(dir(event.postback))) + "\n")
 
 import os
 if __name__ == "__main__":
