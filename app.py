@@ -1,5 +1,7 @@
 from flask import Flask, request, abort
 
+import logging
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -34,6 +36,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = TextSendMessage(text=event.message.text)
+    logging.info(message)
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
