@@ -75,8 +75,13 @@ def filter_message(message):
                     longitude=120.996638
                 )
     elif message == 'StickerSendMessage':
+#         reference pdf: https://developers.line.biz/media/messaging-api/messages/sticker_list.pdf
 #         pass
-        return 'StickerSendMessage function'
+#         return 'StickerSendMessage function'
+        return  StickerSendMessage(
+                    package_id='1',
+                    sticker_id='1'
+                )
     elif message == 'ImagemapSendMessage':
 #         pass
         return 'ImagemapSendMessage function'
@@ -93,7 +98,7 @@ def filter_message(message):
 #         pass
         return 'ImageCarouselTemplate function'
     elif message == 'help':
-        return '''You can test following cmd in this bot:
+        return TextSendMessage(text='''You can test following cmd in this bot:
                 'TextSendMessage'
                 'ImageSendMessage'
                 'VideoSendMessage'
@@ -105,7 +110,7 @@ def filter_message(message):
                 'ConfirmTemplate'
                 'CarouselTemplate'
                 'ImageCarouselTemplate'
-        '''
+        ''')
     else:
         return TextSendMessage(text=message)
 
