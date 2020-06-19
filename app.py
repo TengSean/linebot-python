@@ -42,9 +42,12 @@ help_dict = {
 }
 
 def get_json():
-    with open('./data/test1.json', 'r') as f:
-        j = json.loads(f)
-    return str(j)
+#     with open('./data/test1.json', 'r') as f:
+#         j = json.loads(f)
+#     return str(j)
+    with open('./data/test.txt' as 'r') as f:
+        j = f.read()
+    return j
 
 def filter_message(message):
     if message == 'TextSendMessage':
@@ -268,7 +271,7 @@ def filter_message(message):
     elif message == 'show':
         return TextSendMessage(text=', '.join(os.listdir('./data')))
     elif message == 'get':
-        t = get_json()
+        t = str(get_json())
         return TextSendMessage(text=t)
     else:
         return TextSendMessage(text=message)
@@ -290,8 +293,9 @@ def handle_message(event):
 def handle_postback(event):
 #     pass
 #     j= event
-    with open('./data/test1.json', 'w') as f:
-        json.dump(event, f)
+    with open('./data/test1.txt', 'w') as f:
+#         json.dump(event, f)
+        f.write(dir(event))
 
 import os
 if __name__ == "__main__":
