@@ -91,7 +91,7 @@ def filter_message(message):
                     base_size=BaseSize(height=1040, width=1040),
                     actions=[
                         URIImagemapAction(
-                            link_uri='https://i.imgur.com/4NYu7s2.png',
+                            link_uri='https://imgur.com/gallery/4NYu7s2',
                             area=ImagemapArea(
                                 x=0, y=0, width=520, height=1040
                             )
@@ -106,7 +106,30 @@ def filter_message(message):
                 )
     elif message == 'ButtonsTemplate':
 #         pass
-        return 'ButtonsTemplate function '
+#         return 'ButtonsTemplate function '
+        return emplateSendMessage(
+                    alt_text='Buttons template',
+                    template=ButtonsTemplate(
+                        thumbnail_image_url='https://example.com/image.jpg',
+                        title='Menu',
+                        text='Please select',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='postback',
+                                text='postback text',
+                                data='action=buy&itemid=1'
+                            ),
+                            MessageTemplateAction(
+                                label='message',
+                                text='message text'
+                            ),
+                            URITemplateAction(
+                                label='uri',
+                                uri='http://example.com/'
+                            )
+                        ]
+                    )
+                )
     elif message == 'ConfirmTemplate':
 #         pass
         return 'ConfirmTemplate function'
