@@ -125,7 +125,7 @@ def filter_message(message):
     elif message == 'ButtonsTemplate':
 #         pass
 #         return 'ButtonsTemplate function '
-        return emplateSendMessage(
+        return TemplateSendMessage(
                     alt_text='Buttons template',
                     template=ButtonsTemplate(
                         thumbnail_image_url='https://example.com/image.jpg',
