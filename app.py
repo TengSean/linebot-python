@@ -99,25 +99,25 @@ def filter_message(message):
                         MessageImagemapAction(
                             text='This is lower-left',
                             area=ImagemapArea(
-                                x=0, y=0, width=520, height=520
+                                x=0, y=520, width=520, height=520
                             )
                         ),
                         MessageImagemapAction(
                             text='This is lower-right',
                             area=ImagemapArea(
-                                x=520, y=0, width=520, height=520
+                                x=520, y=520, width=520, height=520
                             )
                         ),
                         MessageImagemapAction(
                             text='This is upper-left',
                             area=ImagemapArea(
-                                x=0, y=520, width=520, height=520
+                                x=0, y=0, width=520, height=520
                             )
                         ),
                         MessageImagemapAction(
                             text='This is upper-right',
                             area=ImagemapArea(
-                                x=520, y=520, width=520, height=520
+                                x=520, y=0, width=520, height=520
                             )
                         )
                     ]
