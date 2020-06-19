@@ -71,8 +71,8 @@ def filter_message(message):
         return LocationSendMessage(
                     title='Demo Location',
                     address='清大',
-                    latitude=120.996638,
-                    longitude=24.796297
+                    latitude=24.796297,
+                    longitude=120.996638
                 )
     elif message == 'StickerSendMessage':
 #         reference pdf: https://developers.line.biz/media/messaging-api/messages/sticker_list.pdf
