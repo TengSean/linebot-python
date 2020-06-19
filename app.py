@@ -83,15 +83,15 @@ def filter_message(message):
                     sticker_id='1'
                 )
     elif message == 'ImagemapSendMessage':
-#         pass
+#         pass https://i.imgur.com/4NYu7s2.png
 #         return 'ImagemapSendMessage function'
         return ImagemapSendMessage(
-                    base_url='https://example.com/base',
+                    base_url='https://i.imgur.com/4NYu7s2.png',
                     alt_text='this is an imagemap',
                     base_size=BaseSize(height=1040, width=1040),
                     actions=[
                         URIImagemapAction(
-                            link_uri='https://example.com/',
+                            link_uri='https://i.imgur.com/4NYu7s2.png',
                             area=ImagemapArea(
                                 x=0, y=0, width=520, height=1040
                             )
