@@ -45,9 +45,10 @@ def get_json():
 #     with open('./data/test1.json', 'r') as f:
 #         j = json.loads(f)
 #     return str(j)
-    with open('./data/test.txt' as 'r') as f:
-        j = f.read()
-    return j
+#     with open('./data/test.txt' as 'r') as f:
+#         j = f.read()
+#     return j
+    return 'aa'
 
 def filter_message(message):
     if message == 'TextSendMessage':
