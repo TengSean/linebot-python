@@ -66,8 +66,14 @@ def filter_message(message):
                     duration=3000
                 )
     elif message == 'LocationSendMessage':
-#         pass
-        return 'LocationSendMessage function'
+#         pass 
+#         return 'LocationSendMessage function'
+        return LocationSendMessage(
+                    title='Demo Location',
+                    address='清大',
+                    latitude=24.796297,
+                    longitude=120.996638
+                )
     elif message == 'StickerSendMessage':
 #         pass
         return 'StickerSendMessage function'
