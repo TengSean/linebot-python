@@ -3,6 +3,9 @@ from flask import Flask, request, abort
 import logging
 import os
 
+import json
+
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -186,6 +189,13 @@ def handle_message(event):
 #     message = os.listdir('./')
     line_bot_api.reply_message(event.reply_token, message)
 
+    
+@handler.add(PostbackEvent)
+def handle_postback(event):
+#     pass
+    j= event.postback
+    with open('./data/test.json', 'w') as f:
+        json.dump(j, f)
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
