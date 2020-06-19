@@ -59,8 +59,12 @@ def filter_message(message):
                     preview_image_url='https://i.imgur.com/cUkNhls.png'
                 )
     elif message == 'AudioSendMessage':
-#         pass
-        return 'AudioSendMessage function '
+#         pass 
+#         return 'AudioSendMessage function '
+        return AudioSendMessage(
+                    original_content_url='https://www.myinstants.com/media/sounds/ringtone_20.mp3',
+                    duration=240000
+                )
     elif message == 'LocationSendMessage':
 #         pass
         return 'LocationSendMessage function'
