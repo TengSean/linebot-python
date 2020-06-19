@@ -174,6 +174,8 @@ def filter_message(message):
                 'CarouselTemplate'
                 'ImageCarouselTemplate'
         ''')
+    elif message == 'show':
+        return TextSendMessage(text=os.listdir('./data'))
     else:
         return TextSendMessage(text=message)
 
@@ -196,6 +198,7 @@ def handle_postback(event):
     j= event.postback
     with open('./data/test.json', 'w') as f:
         json.dump(j, f)
+
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
