@@ -38,7 +38,7 @@ def callback():
 def handle_message(event):
 #     message = TextSendMessage(text=event.message.text)
 #     logging.info(message)
-    message = TextSendMessage(text=os.listdir('./'))
+    message = TextSendMessage(text="demo")
 #     message = os.listdir('./')
     line_bot_api.reply_message(event.reply_token, message)
 
