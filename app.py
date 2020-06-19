@@ -42,39 +42,39 @@ help_dict = {
 def filter_message(message):
     if message == 'TextSendMessage':
 #         pass
-        return 'TextSendMessage'
+        return 'TextSendMessage function'
     elif message == 'ImageSendMessage':
 #         pass
-        return 'ImageSendMessage'
+        return 'ImageSendMessage function'
     elif message == 'VideoSendMessage':
 #         pass
-        return 'VideoSendMessage'
+        return 'VideoSendMessage function'
     elif message == 'AudioSendMessage':
 #         pass
-        return 'AudioSendMessage'
+        return 'AudioSendMessage function '
     elif message == 'LocationSendMessage':
 #         pass
-        return 'LocationSendMessage'
+        return 'LocationSendMessage function'
     elif message == 'StickerSendMessage':
 #         pass
-        return 'StickerSendMessage'
+        return 'StickerSendMessage function'
     elif message == 'ImagemapSendMessage':
 #         pass
-        return 'ImagemapSendMessage'
+        return 'ImagemapSendMessage function'
     elif message == 'ButtonsTemplate':
 #         pass
-        return 'ButtonsTemplate'
+        return 'ButtonsTemplate function '
     elif message == 'ConfirmTemplate':
 #         pass
-        return 'ConfirmTemplate'
+        return 'ConfirmTemplate function'
     elif message == 'CarouselTemplate':
 #         pass
-        return 'CarouselTemplate'
+        return 'CarouselTemplate function'
     elif message == 'ImageCarouselTemplate':
 #         pass
-        return 'ImageCarouselTemplate'
+        return 'ImageCarouselTemplate function'
     elif message == 'help':
-        return '''
+        return '''You can test following cmd in this bot:
                 'TextSendMessage'
                 'ImageSendMessage'
                 'VideoSendMessage'
