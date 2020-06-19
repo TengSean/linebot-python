@@ -42,10 +42,15 @@ help_dict = {
 def filter_message(message):
     if message == 'TextSendMessage':
 #         pass
-        return 'TextSendMessage function'
+#         return 'TextSendMessage function'
+        return TextSendMessage(text='TextSendMessage function')
     elif message == 'ImageSendMessage':
 #         pass
-        return 'ImageSendMessage function'
+#         return 'ImageSendMessage function'
+        return ImageSendMessage(
+                    original_content_url='https://i.imgur.com/Uschheg.jpg',
+                    preview_image_url='https://i.imgur.com/Uschheg.jpg'
+                )
     elif message == 'VideoSendMessage':
 #         pass
         return 'VideoSendMessage function'
@@ -98,7 +103,7 @@ def handle_message(event):
 #     logging.info(message)
     message = filter_message(message=event.message.text)
 #     t = ', '.join(os.listdir('./'))
-    message = TextSendMessage(text=message)
+#     message = TextSendMessage(text=message)
 #     message = os.listdir('./')
     line_bot_api.reply_message(event.reply_token, message)
 
