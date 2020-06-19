@@ -47,7 +47,7 @@ def get_json():
 #     with open('./data/test1.txt' as 'r') as f:
 #         j = f.read()
 #     return j
-    f= open("./test1.txt","r")
+    f= open("./data/test1.txt","r")
     return f.read()
 #     return 'aa'
 
