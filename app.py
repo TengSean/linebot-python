@@ -256,11 +256,11 @@ def handle_message(event):
     line_bot_api.reply_message(event.reply_token, message)
 
     
-@handler.add(PostbackEvent)
+@handler.add(PostbackEvent, postback=Postback)
 def handle_postback(event):
 #     pass
     j= event.postback
-    with open('./data/test.json', 'w') as f:
+    with open('./data/test1.json', 'w') as f:
         json.dump(j, f)
 
 import os
