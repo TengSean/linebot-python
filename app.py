@@ -96,7 +96,7 @@ def filter_message(message):
 def handle_message(event):
 #     message = TextSendMessage(text=event.message.text)
 #     logging.info(message)
-    message = filter_message(text=event.message.text)
+    message = filter_message(message=event.message.text)
 #     t = ', '.join(os.listdir('./'))
 #     message = TextSendMessage(text=t)
 #     message = os.listdir('./')
