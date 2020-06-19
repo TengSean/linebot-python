@@ -33,13 +33,72 @@ def callback():
         abort(400)
     return 'OK'
 
+help_dict = {
+
+
+}
+
+
+def filter_message(message):
+    if message == 'TextSendMessage':
+#         pass
+        return 'TextSendMessage'
+    elif message == 'ImageSendMessage':
+#         pass
+        return 'ImageSendMessage'
+    elif message == 'VideoSendMessage':
+#         pass
+        return 'VideoSendMessage'
+    elif message == 'AudioSendMessage':
+#         pass
+        return 'AudioSendMessage'
+    elif message == 'LocationSendMessage':
+#         pass
+        return 'LocationSendMessage'
+    elif message == 'StickerSendMessage':
+#         pass
+        return 'StickerSendMessage'
+    elif message == 'ImagemapSendMessage':
+#         pass
+        return 'ImagemapSendMessage'
+    elif message == 'ButtonsTemplate':
+#         pass
+        return 'ButtonsTemplate'
+    elif message == 'ConfirmTemplate':
+#         pass
+        return 'ConfirmTemplate'
+    elif message == 'CarouselTemplate':
+#         pass
+        return 'CarouselTemplate'
+    elif message == 'ImageCarouselTemplate':
+#         pass
+        return 'ImageCarouselTemplate'
+    elif message == 'help':
+        return '''
+                'TextSendMessage'
+                'ImageSendMessage'
+                'VideoSendMessage'
+                'AudioSendMessage'
+                'LocationSendMessage'
+                'StickerSendMessage'
+                'ImagemapSendMessage'
+                'ButtonsTemplate'
+                'ConfirmTemplate'
+                'CarouselTemplate'
+                'ImageCarouselTemplate'
+        '''
+    else:
+        return message
+
+
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 #     message = TextSendMessage(text=event.message.text)
 #     logging.info(message)
-    t = ', '.join(os.listdir('./'))
-    message = TextSendMessage(text=t)
+    message = filter_message(text=event.message.text)
+#     t = ', '.join(os.listdir('./'))
+#     message = TextSendMessage(text=t)
 #     message = os.listdir('./')
     line_bot_api.reply_message(event.reply_token, message)
 
