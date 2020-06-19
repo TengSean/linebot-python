@@ -1,13 +1,9 @@
-#!/usr/bin/python3
-
 from flask import Flask, request, abort
 
 import logging
 import os
 
 import json
-
-from __future__ import with_statement
 
 from linebot import (
     LineBotApi, WebhookHandler
