@@ -90,16 +90,34 @@ def filter_message(message):
                     alt_text='this is an imagemap',
                     base_size=BaseSize(height=1040, width=1040),
                     actions=[
-                        URIImagemapAction(
-                            link_uri='https://imgur.com/gallery/4NYu7s2',
+#                         URIImagemapAction(
+#                             link_uri='https://imgur.com/gallery/4NYu7s2',
+#                             area=ImagemapArea(
+#                                 x=0, y=0, width=520, height=1040
+#                             )
+#                         ),
+                        MessageImagemapAction(
+                            text='This is lower-left',
                             area=ImagemapArea(
-                                x=0, y=0, width=520, height=1040
+                                x=0, y=0, width=520, height=520
                             )
                         ),
                         MessageImagemapAction(
-                            text='hello',
+                            text='This is lower-right',
                             area=ImagemapArea(
-                                x=520, y=0, width=520, height=1040
+                                x=520, y=0, width=520, height=520
+                            )
+                        ),
+                        MessageImagemapAction(
+                            text='This is upper-left',
+                            area=ImagemapArea(
+                                x=0, y=520, width=520, height=520
+                            )
+                        ),
+                        MessageImagemapAction(
+                            text='This is upper-right',
+                            area=ImagemapArea(
+                                x=520, y=520, width=520, height=520
                             )
                         )
                     ]
