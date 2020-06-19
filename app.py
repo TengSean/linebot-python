@@ -55,8 +55,8 @@ def filter_message(message):
 #         pass
 #         return 'VideoSendMessage function'
         return VideoSendMessage(
-                    original_content_url='./data/mp4/sample.mp4',
-                    preview_image_url='./data/mp4/sample.jpg'
+                    original_content_url='https://im.ezgif.com/tmp/ezgif-1-2a754b6badc2.mp4',
+                    preview_image_url='https://i.imgur.com/cUkNhls.png'
                 )
     elif message == 'AudioSendMessage':
 #         pass
