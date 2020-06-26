@@ -293,7 +293,7 @@ def handle_join(event):
             event.reply_token,
             TextMessage(text=newcoming_text)
         )
-    print("JoinEvent =", JoinEvent)
+    print("JoinEvent =", JoinEvent.groupId)
 
 @handler.add(LeaveEvent)
 def handle_leave(event):
