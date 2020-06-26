@@ -16,9 +16,9 @@ from linebot.models import *
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('XV1X7KidmK44Bs1oKK8JCshs028vWypnmKpcKV0Xv/GGUplLnrccpEBF3YWHqXGXjiqYb+rCIQU3CoZCEKonzERWWuSx3z+/nnx6dRGMUA1LsXe+7CHxqOGHpM8PbPRKt8Ubn68+5WhjhTpPQjwPSQdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('')
 # Channel Secret
-handler = WebhookHandler('0d8a150467c7c3629bd50fe6e49a8605')
+handler = WebhookHandler('')
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -285,22 +285,6 @@ def handle_message(event):
 #     message = os.listdir('./')
     line_bot_api.reply_message(event.reply_token, message)
 
-@handler.add(JoinEvent)
-def handle_join(event):
-    newcoming_text = "謝謝邀請我這個機器來至此群組！！我會盡力為大家服務的～"
-
-    line_bot_api.reply_message(
-            event.reply_token,
-            TextMessage(text=newcoming_text)
-        )
-    print("JoinEvent =", JoinEvent)
-
-@handler.add(LeaveEvent)
-def handle_leave(event):
-    print("leave Event =", event)
-    print("我被踢掉了QQ 相關資訊", event.source)
-    
-    
     
 @handler.add(PostbackEvent)
 def handle_postback(event):
