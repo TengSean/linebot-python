@@ -8,7 +8,7 @@ from twisted.internet import reactor, defer
 from scrapy.crawler import CrawlerRunner
 from scrapy.utils.log import configure_logging
 from tutorial.items import TutorialItem
-
+from tutorial.richLogging import RL
 
 from bs4 import BeautifulSoup
 
@@ -19,9 +19,20 @@ import pandas as pd
 import numpy as np
 
 # from scrapy.utils.project import get_project_settings
+import logging
+from rich.logging import RichHandler
+from rich.console import Console
+
 
 class mySpyder(scrapy.Spider):
     name = 'spyder1'
+    # rl = logging.getLogger("rich")
+    # FORMAT = "%(message)s"
+    # logging.basicConfig(
+    #     level="NOTSET", format=FORMAT, datefmt="[%X]", handlers=[RichHandler()]
+    # )
+    # rl = logging.getLogger('rich')
+    rl = RL()
 
     def start_requests(self, ):
         urls = [
@@ -60,6 +71,7 @@ class mySpyder(scrapy.Spider):
         for table in response.selector.xpath('//table[@class="hasBorder"]'):
             selector_list = table.xpath('//tr[@class="odd"]/td/text()|//tr[@class="even"]/td/text()')
             for i in range(0,len(selector_list), 12):
+
                 item = TutorialItem()
 
                 item['CONTENT_TICKER'] = str(selector_list[i].get().strip(' '))
@@ -74,14 +86,16 @@ class mySpyder(scrapy.Spider):
                 item['CONTENT_MEMO'] = str(selector_list[i + 10].get())
                 item['CONTENT_DECLARATION_DATE'] = selector_list[i + 11].get()
 
-                self.log(f"ticker: {item['CONTENT_TICKER']}, company: {item['CONTENT_COMPANY']}, identity: {item['CONTENT_IDENTITY']}, name: {item['CONTENT_NAME']}, transaction_date: \
-                    {item['CONTENT_TRANSACTION_DATE']}, mortgage: {item['CONTENT_MORTGAGE']}, redemption: {item['CONTENT_REDEMPTION']}, cumulative_stock: {item['CONTENT_CUMULATIVE_STOCK']}, \
-                        pledgee: {item['CONTENT_PLEDGEE']}, memo: {item['CONTENT_MEMO']}, delcaration_date: {item['CONTENT_DECLARATION_DATE']}")
-                self.log(f'[Round {int((i/12) + 1) }] Finish!')
-
+                # self.rl.debug(f"ticker: {item['CONTENT_TICKER']}, company: {item['CONTENT_COMPANY']}, identity: {item['CONTENT_IDENTITY']}, name: {item['CONTENT_NAME']}, transaction_date: \
+                #     {item['CONTENT_TRANSACTION_DATE']}, mortgage: {item['CONTENT_MORTGAGE']}, redemption: {item['CONTENT_REDEMPTION']}, cumulative_stock: {item['CONTENT_CUMULATIVE_STOCK']}, \
+                #      pledgee: {item['CONTENT_PLEDGEE']}, memo: {item['CONTENT_MEMO']}, delcaration_date: {item['CONTENT_DECLARATION_DATE']}")
+                # self.log(f'[Round {int((i/12) + 1) }] Finish!')
+                self.rl.debug(item)
+                self.rl.info(f"Round {int(i/12+1)} Finish!")
 
 
     def parse_login(self, response):
         pass
 
+# console.print(hi
 
