@@ -15,15 +15,12 @@ class BaseItem(scrapy.Item):
 
 
 
-
 class TutorialItem(BaseItem):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
 
-    # pass
-    CONTENT_TICKER = scrapy.Field()
+    # define the fields for your item here:
+    BASIC_TICKER = scrapy.Field()
 
-    CONTENT_COMPANY = scrapy.Field()
+    BASIC_COMPANY = scrapy.Field()
 
     CONTENT_IDENTITY = scrapy.Field()
 
@@ -43,3 +40,7 @@ class TutorialItem(BaseItem):
 
     CONTENT_DECLARATION_DATE = scrapy.Field()
 
+
+class Stock_Price(BaseItem):
+
+    pass

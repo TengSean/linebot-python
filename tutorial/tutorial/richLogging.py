@@ -16,14 +16,15 @@ class RL:
     def info(self, msg):
         def __name__():
             return 'info'
+
         self.c.print(f'[bold #9F7E90]{datetime.now().strftime("%m月%d日%H:%M")}|[/bold #9F7E90]', end = '')
         self.c.print(self.LEVEL_DICT[__name__().lower()], end=' ')
         self.c.print(msg)
-        # print(dir(self))
 
     def error(self, msg):
         def __name__():
             return 'error'
+
         self.c.print(f'[bold #9F7E90]{datetime.now().strftime("%m月%d日%H:%M")}|[/bold #9F7E90]', end = '')
         self.c.print(self.LEVEL_DICT[__name__().lower()], end=' ')
         self.c.print(msg)
@@ -31,6 +32,7 @@ class RL:
     def debug(self, msg):
         def __name__():
             return 'debug'
+
         self.c.print(f'[bold #9F7E90]{datetime.now().strftime("%m月%d日%H:%M")}|[/bold #9F7E90]', end = '')
         self.c.print(self.LEVEL_DICT[__name__().lower()], end=' ')
         self.c.print(msg)
@@ -38,6 +40,7 @@ class RL:
     def warning(self, msg):
         def __name__():
             return 'warning'
+
         self.c.print(f'[bold #9F7E90]{datetime.now().strftime("%m月%d日%H:%M")}|[/bold #9F7E90]', end = '')
         self.c.print(self.LEVEL_DICT[__name__().lower()], end=' ')
         self.c.print(msg)

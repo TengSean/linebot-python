@@ -1,46 +1,22 @@
-# This package will contain the spiders of your Scrapy project
-#
-# Please refer to the documentation for information on how to create and manage
-# your spiders.
-
 import scrapy
-from twisted.internet import reactor, defer
-from scrapy.crawler import CrawlerRunner
-from scrapy.utils.log import configure_logging
+from scrapy_splash import SplashRequest, SplashFormRequest
+
 from tutorial.items import TutorialItem
 from tutorial.richLogging import RL
 
-from bs4 import BeautifulSoup
-
-from scrapy_splash import SplashRequest, SplashFormRequest
 import os, time
 
-import pandas as pd
-import numpy as np
-
-# from scrapy.utils.project import get_project_settings
-import logging
-from rich.logging import RichHandler
-from rich.console import Console
 
 
 class mySpyder(scrapy.Spider):
     name = 'spyder1'
-    # rl = logging.getLogger("rich")
-    # FORMAT = "%(message)s"
-    # logging.basicConfig(
-    #     level="NOTSET", format=FORMAT, datefmt="[%X]", handlers=[RichHandler()]
-    # )
-    # rl = logging.getLogger('rich')
     rl = RL()
 
     def start_requests(self, ):
         urls = [
             'https://mops.twse.com.tw/mops/web/STAMAK03_1',
-            # 'http://quotes.toscrape.com/login',
-            # 'https://www.google.com.tw/search?q=柯基&tbm=isch'
         ]
-
+        # self.rl.info(f'First arg is: {self.arg1}')
         lua = '''
         function main(splash, args)
             assert(splash:go(splash.args.url))
@@ -73,9 +49,8 @@ class mySpyder(scrapy.Spider):
             for i in range(0,len(selector_list), 12):
 
                 item = TutorialItem()
-
-                item['CONTENT_TICKER'] = str(selector_list[i].get().strip(' '))
-                item['CONTENT_COMPANY'] = str(selector_list[i+1].get().strip(' '))
+                item['BASIC_TICKER'] = str(selector_list[i].get().strip(' '))
+                item['BASIC_COMPANY'] = str(selector_list[i+1].get().strip(' '))
                 item['CONTENT_IDENTITY'] = str(selector_list[i+3].get().strip(' '))
                 item['CONTENT_NAME'] = str(selector_list[i+4].get().strip(' '))
                 item['CONTENT_TRANSACTION_DATE'] = str(selector_list[i + 5].get().strip(' '))
@@ -89,13 +64,10 @@ class mySpyder(scrapy.Spider):
                 # self.rl.debug(f"ticker: {item['CONTENT_TICKER']}, company: {item['CONTENT_COMPANY']}, identity: {item['CONTENT_IDENTITY']}, name: {item['CONTENT_NAME']}, transaction_date: \
                 #     {item['CONTENT_TRANSACTION_DATE']}, mortgage: {item['CONTENT_MORTGAGE']}, redemption: {item['CONTENT_REDEMPTION']}, cumulative_stock: {item['CONTENT_CUMULATIVE_STOCK']}, \
                 #      pledgee: {item['CONTENT_PLEDGEE']}, memo: {item['CONTENT_MEMO']}, delcaration_date: {item['CONTENT_DECLARATION_DATE']}")
-                # self.log(f'[Round {int((i/12) + 1) }] Finish!')
-                self.rl.debug(item)
+
+                # self.rl.debug(item)
                 self.rl.info(f"Round {int(i/12+1)} Finish!")
-
-
-    def parse_login(self, response):
-        pass
-
+                
+                yield item
+        
 # console.print(hi
-
