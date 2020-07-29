@@ -18,7 +18,7 @@ class price_item(scrapy.Item):
 class Stock_Price(scrapy.Spider):
     name = 'stock_price'
     # rl = RL()
-
+    pipeline = ['filesdownload_stock_yahoo']
     def start_requests(self, ):
         base_urls = [
             # 'https://query1.finance.yahoo.com/v7/finance/download/'
@@ -35,22 +35,8 @@ class Stock_Price(scrapy.Spider):
                                 headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36'},
                                 callback=self.parse
                                 )
-            # yield SplashRequest(url,
-            #             self.parse,
-            #             )
 
     def parse(self, response):
         with open('./this_is_test.csv', 'wb') as f:
             f.write(response.body)
 
-
-
-# configure_logging()
-# runner = CrawlerRunner()
-# @defer.inlineCallbacks
-# def crawl():
-#     yield runner.crawl(Stock_Price)
-#     reactor.stop()
-
-# crawl()
-# reactor.run()

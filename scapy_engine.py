@@ -4,14 +4,18 @@ from subprocess import Popen, PIPE
 from datetime import datetime
 
 file_name = str(datetime.today().strftime("%Y-%m-%d"))
-p = Popen(["scrapy", "crawl", "spyder1",
+p1 = Popen(['scrapy', 'crawl', 'stock_price'],
+            cwd = './tutorial',
+            stdout=PIPE)
+p2 = Popen(["scrapy", "crawl", "spyder1",
             "-s", f"filename={file_name}"],
             cwd = './tutorial',
             stdout=PIPE)
-
-out, err = p.communicate()
-print(err)
-print(out.decode('utf-8'))
+out1,err1 = p1.communicate()
+out2, err2 = p2.communicate()
+# print(err)
+print(out1.decode('utf-8'))
+print(out2.decode('utf-8'))
 # print(out)
 # %%
 # import datetime
